@@ -1,0 +1,14 @@
+`phpvms_credits`*sql
+../admin/modules/Credits/Credits.php
+../admin/templates/credits/credit_create.php
+../admin/templates/credits/credits_edit.php
+../admin/templates/credits/credits_header.php
+../admin/templates/credits/credits_index.php
+../admin/templates/credits/sidebar_credits.php
+../core/common/CreditsData.class.php
+../core/modules/Credits/Credits.php
+../core/templates/credits/index.php
+/var/www/html/admin/modules/Credits/
+/var/www/html/admin/templates/credits/
+/var/www/html/core/modules/Credits/
+/var/www/html/core/templates/credits/

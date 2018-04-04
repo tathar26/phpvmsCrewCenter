@@ -1,0 +1,6 @@
+../core/common/PopUpNewsData.class.php
+../core/modules/PopUpNews/PopUpNews.php
+../core/templates/popupnews/popupnews_item.php
+../core/templates/popupnews/popupnews_list.php
+/var/www/html/core/modules/PopUpNews/
+/var/www/html/core/templates/popupnews/
