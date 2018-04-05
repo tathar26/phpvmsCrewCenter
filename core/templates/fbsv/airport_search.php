@@ -39,7 +39,7 @@ $(document).ready(function(){
 									<div class="col-lg-6" id="tab_1">
                           				<p>Select your Arrival airport:</p>
                             			<div class="form-group">
-                              				<select id="arricao" name="arricao" class="selectpicker" data-live-search="true" >
+                              				<select id="arricao" name="arricao" class="select-search" data-live-search="true" >
                                 			<option value="">Select All</option>
                                 			<?php
 												$airs = FBSVData::arrivalairport($last_location->arricao);
@@ -62,7 +62,7 @@ $(document).ready(function(){
 									<div class="col-lg-6" id="tab_2">
                           				<p>Select your airline:</p>
                             			<div class="form-group">
-                          					<select id="airline" name="airline" class="selectpicker" data-live-search="true" >
+                          					<select id="airline" name="airline" class="select-search" data-live-search="true" >
                             				<option value="">Select All</option>
 											<?php
 												if(!$airlines) $airlines = array();
@@ -80,7 +80,7 @@ $(document).ready(function(){
 									<div class="col-lg-6" id="tab_3">
                           				<p>Select your Aircraft :</p>
                             			<div class="form-group">
-                          					<select id="aircraft" name="aircraft" class="selectpicker" data-live-search="true" >
+                          					<select id="aircraft" name="aircraft" class="select-search" data-live-search="true" >
                             				<option value="">Select All</option>
 											<?php
 												$airc = FBSVData::routeaircraft($last_location->arricao);
@@ -106,12 +106,12 @@ $(document).ready(function(){
 									<div class="col-lg-6"
 										<div class="form-group">
 												<input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary" />
-											</div>
+												<p>
+													<input type="hidden" name="action" value="findflight"/>
+												</p>
 										</div>
-								</div>
-							<p>
-								<input type="hidden" name="action" value="findflight"/>
-							</p>
+									</div>
+								</div
 							</form>
 
 							<h3>Pilot Transfer</h3>
