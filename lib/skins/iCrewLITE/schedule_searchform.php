@@ -1,4 +1,4 @@
-<!-- Basic Card - With Loading -->
+<!-- Basic Card - With Loading- -->
             <div class="row clearfix">
                 <div class="col-md-12">
                     <div class="card">
