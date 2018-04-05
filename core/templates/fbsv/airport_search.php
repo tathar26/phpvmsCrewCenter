@@ -36,74 +36,71 @@ $(document).ready(function(){
 							</ul>
 							<form action="<?php echo url('/FBSV11');?>" method="post" enctype="multipart/form-data">
 								<div class="row">
-									
-									
-										<div class="col-lg-6" id="tab_1">
-                          					<p>Select your Arrival airport:</p>
-                            				<div class="form-group">
-                              					<select id="arricao" name="arricao" class="selectpicker" data-live-search="true" >
-                                				<option value="">Select All</option>
-                                				<?php
-													$airs = FBSVData::arrivalairport($last_location->arricao);
-													if(!$airs)
-														{
-															echo '<option>No Airports Available!</option>';
-														}
-													else
-														{
-															foreach ($airs as $air)
-																{
-																	$nam = OperationsData::getAirportInfo($air->arricao);
-																	echo '<option value="'.$air->arricao.'">'.$air->arricao.' - '.$nam->name.'</option>';
-																}
-														}
-												?>
-                                				</select>
-                            				</div>
+									<div class="col-lg-6" id="tab_1">
+                          				<p>Select your Arrival airport:</p>
+                            			<div class="form-group">
+                              				<select id="arricao" name="arricao" class="selectpicker" data-live-search="true" >
+                                			<option value="">Select All</option>
+                                			<?php
+												$airs = FBSVData::arrivalairport($last_location->arricao);
+												if(!$airs)
+													{
+														echo '<option>No Airports Available!</option>';
+													}
+												else
+													{
+														foreach ($airs as $air)
+															{
+																$nam = OperationsData::getAirportInfo($air->arricao);
+																echo '<option value="'.$air->arricao.'">'.$air->arricao.' - '.$nam->name.'</option>';
+															}
+													}
+											?>
+                            				</select>
                         				</div>
-										<div class="col-lg-6" id="tab_2">
-                          					<p>Select your airline:</p>
-                            				<div class="form-group">
-                              					<select id="airline" name="airline" class="selectpicker" data-live-search="true" >
-                                				<option value="">Select All</option>
-												<?php
-													if(!$airlines) $airlines = array();
-														foreach($airlines as $airline)
-														{
-															echo '<option value="'.$airline->code.'">'.$airline->name
+                    				</div>
+									<div class="col-lg-6" id="tab_2">
+                          				<p>Select your airline:</p>
+                            			<div class="form-group">
+                          					<select id="airline" name="airline" class="selectpicker" data-live-search="true" >
+                            				<option value="">Select All</option>
+											<?php
+												if(!$airlines) $airlines = array();
+													foreach($airlines as $airline)
+													{
+														echo '<option value="'.$airline->code.'">'.$airline->name
 																	.' ('.$airline->code.')</option>';
-														}
-												?>
-												</select>
-											</div>
+													}
+											?>
+											</select>
 										</div>
+									</div>
 								</div>
 								<div class="row">		
-										<div class="col-lg-6" id="tab_3">
-                          					<p>Select your Aircraft :</p>
-                            				<div class="form-group">
-                              					<select id="aircraft" name="aircraft" class="selectpicker" data-live-search="true" >
-                                				<option value="">Select All</option>
-												<?php
-													$airc = FBSVData::routeaircraft($last_location->arricao);
-													if(!$airc)
-														{
-															echo '<option>No Aircraft Available!</option>';
-														}
-													else
-														{
-															foreach ($airc as $air)
-																{
-																$ai = FBSVData::getaircraftbyID($air->aircraft);
-												?>
-														<option value="<?php echo $ai->icao ;?>"><?php
-														echo $ai->name ;?></option>
-												<?php
-																}
-														}
-												?>
-												</select>
-											</div>
+									<div class="col-lg-6" id="tab_3">
+                          				<p>Select your Aircraft :</p>
+                            			<div class="form-group">
+                          					<select id="aircraft" name="aircraft" class="selectpicker" data-live-search="true" >
+                            				<option value="">Select All</option>
+											<?php
+												$airc = FBSVData::routeaircraft($last_location->arricao);
+												if(!$airc)
+													{
+														echo '<option>No Aircraft Available!</option>';
+													}
+												else
+													{
+														foreach ($airc as $air)
+															{
+															$ai = FBSVData::getaircraftbyID($air->aircraft);
+											?>
+													<option value="<?php echo $ai->icao ;?>"><?php
+													echo $ai->name ;?></option>
+											<?php
+															}
+													}
+											?>
+											</select>
 										</div>
 									</div>
 									<div class="col-lg-6"
