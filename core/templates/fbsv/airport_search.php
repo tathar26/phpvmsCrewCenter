@@ -35,14 +35,10 @@ $(document).ready(function(){
 								<li>Current Location: <b><font color="#FF3300"><?php echo $last_location->arricao?> - <?php echo $last_name->name?></font></b></li>
 							</ul>
 							<form action="<?php echo url('/FBSV11');?>" method="post" enctype="multipart/form-data">
-								<div class="nav-tabs-custom">
-									<ul class="nav nav-tabs">
-										<li class="active"><a href="#tab_1" data-toggle="tab">Arrival</a></li>
-                        				<li><a href="#tab_2" data-toggle="tab">Airline</a></li>
-                        				<li><a href="#tab_3" data-toggle="tab">Aircraft</a></li>
-									</ul>
-									<div class="tab-content">
-										<div class="tab-pane active" id="tab_1">
+								<div class="row">
+									
+									
+										<div class="col-lg-6" id="tab_1">
                           					<p>Select your Arrival airport:</p>
                             				<div class="form-group">
                               					<select id="arricao" name="arricao" class="selectpicker" data-live-search="true" >
@@ -64,9 +60,8 @@ $(document).ready(function(){
 												?>
                                 				</select>
                             				</div>
-                            				<input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary" />
                         				</div>
-										<div class="tab-pane" id="tab_2">
+										<div class="col-lg-6" id="tab_2">
                           					<p>Select your airline:</p>
                             				<div class="form-group">
                               					<select id="airline" name="airline" class="selectpicker" data-live-search="true" >
@@ -81,9 +76,10 @@ $(document).ready(function(){
 												?>
 												</select>
 											</div>
-											<input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary" />
 										</div>
-										<div class="tab-pane" id="tab_3">
+								</div>
+								<div class="row">		
+										<div class="col-lg-6" id="tab_3">
                           					<p>Select your Aircraft :</p>
                             				<div class="form-group">
                               					<select id="aircraft" name="aircraft" class="selectpicker" data-live-search="true" >
@@ -108,9 +104,13 @@ $(document).ready(function(){
 												?>
 												</select>
 											</div>
-											<input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary" />
 										</div>
 									</div>
+									<div class="col-lg-6"
+										<div class="form-group">
+												<input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary" />
+											</div>
+										</div>
 								</div>
 							<p>
 								<input type="hidden" name="action" value="findflight"/>
