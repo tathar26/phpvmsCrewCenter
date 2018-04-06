@@ -31,9 +31,11 @@ $(document).ready(function(){
                             </h2>
                         </div>
                         <div class="body">
-						<ul>
-								<li>Current Location: <b><font color="#FF3300"><?php echo $last_location->arricao?> - <?php echo $last_name->name?></font></b></li>
-							</ul>
+							<div class="header">
+								<h3>
+									Current Location: <b><font color="#FF3300"><?php echo $last_location->arricao?> - <?php echo $last_name->name?></font></b>
+								</h3>
+							</div>
 							<form action="<?php echo url('/FBSV11');?>" method="post" enctype="multipart/form-data">
 								<div class="row">
 									<div class="col-lg-6" id="tab_1">
@@ -116,8 +118,9 @@ $(document).ready(function(){
 									</div>
 								</div
 							</form>
-
+						<div class="header">
 							<h3>Pilot Transfer</h3>
+						</div>
 							<ul>
 								<li>Your Bank limit is : <font color="#66FF00"><?php echo FinanceData::FormatMoney(Auth::$userinfo->totalpay) ;?></font></li>
 							</ul>
