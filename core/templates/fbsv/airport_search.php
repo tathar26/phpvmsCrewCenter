@@ -63,7 +63,7 @@ $(document).ready(function(){
 									<div class="col-lg-6" id="tab_2">
                           				<p>Select your airline:</p>
                             			<div class="form-group">
-                          					<select id="airline" name="airline" class="selectpicker" data-live-search="true width="100%" >
+                          					<select id="airline" name="airline" class="selectpicker form-control" data-live-search="true width="100%" >
                             				<option value="">Select All</option>
 											<?php
 												if(!$airlines) $airlines = array();
@@ -81,7 +81,7 @@ $(document).ready(function(){
 									<div class="col-lg-6" id="tab_3">
                           				<p>Select your Aircraft :</p>
                             			<div class="form-group">
-                          					<select id="aircraft" name="aircraft" class="selectpicker" data-live-search="true" >
+                          					<select id="aircraft" name="aircraft" class="selectpicker form-control" data-live-search="true" >
                             				<option value="">Select All</option>
 											<?php
 												$airc = FBSVData::routeaircraft($last_location->arricao);
@@ -104,9 +104,11 @@ $(document).ready(function(){
 											</select>
 										</div>
 									</div>
-									<div class="col-lg-6"
+								</div>
+								<div class="row">
+									<div class="col-lg-12"
 										<div class="form-group">
-												<input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary" />
+												<input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary form-control" />
 												<p>
 													<input type="hidden" name="action" value="findflight"/>
 												</p>
