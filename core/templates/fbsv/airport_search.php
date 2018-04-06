@@ -63,7 +63,7 @@ $(document).ready(function(){
 									<div class="col-lg-6" id="tab_2">
                           				<p>Select your airline:</p>
                             			<div class="form-group">
-                          					<select id="airline" name="airline" class="selectpicker" data-live-search="true" >
+                          					<select id="airline" name="airline" class="selectpicker" data-live-search="true width="100%" >
                             				<option value="">Select All</option>
 											<?php
 												if(!$airlines) $airlines = array();
