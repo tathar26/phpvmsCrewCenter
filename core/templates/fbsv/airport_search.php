@@ -39,7 +39,7 @@ $(document).ready(function(){
 									<div class="col-lg-6" id="tab_1">
                           				<p>Select your Arrival airport:</p>
                             			<div class="form-group">
-                              				<select id="arricao" name="arricao" class="selectpicker" data-live-search="true" >
+                              				<select id="arricao" name="arricao" class="selectpicker form-control" data-live-search="true" >
 											  
                                 			<option value="">Select All</option>
                                 			<?php
