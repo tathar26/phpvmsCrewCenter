@@ -73,8 +73,8 @@ $last_name = OperationsData::getAirportInfo($last_location->arricao);
                                     $bids = SchedulesData::getBids(Auth::$pilot->pilotid);
                                     if (count($bids) > 0) {
                                         ?>
-                                        <input type="button" disabled="disabled" value="Reserved" title="You Have A Reservation!">
-                                        <a href="<?php echo url('/schedules/bids'); ?>"><input type="submit" name="submit" value="Remove Bid" /></a>
+                                        <input class="btn btn-block" type="button" disabled="disabled" value="Reserved" title="You Have A Reservation!">
+                                        <a class="btn btn-warning" href="<?php echo url('/schedules/bids'); ?>"><input type="submit" name="submit" value="Remove Bid" /></a>
                                         <?php
                                     } elseif ($route->bidid != 0) {
                                         ?>
@@ -82,7 +82,7 @@ $last_name = OperationsData::getAirportInfo($last_location->arricao);
                                         <?php
                                     } else {
                                         ?>
-                                        <a id="<?php echo $route->id; ?>" style="text decoration: none;" href="<?php echo url('/schedules/addbid?id=' . $route->id); ?>"><input type="button" value="Book Flight" title="Click To Book Flight!"></a>
+                                        <a id="<?php echo $route->id; ?>" class="addbid btn btn-success" style="text decoration: none;" href="<?php echo url('/schedules/addbid?id=' . $route->id); ?>"><input type="button" value="Book Flight" title="Click To Book Flight!"></a>
                                         <?php
                                     }
                                     ?>
