@@ -73,12 +73,12 @@ $last_name = OperationsData::getAirportInfo($last_location->arricao);
                                     $bids = SchedulesData::getBids(Auth::$pilot->pilotid);
                                     if (count($bids) > 0) {
                                         ?>
-                                        <input class="btn btn-block" type="button" disabled="disabled" value="Reserved" title="You Have A Reservation!">
+                                    <a class="btn btn-block" type="button" disabled="disabled">Reserved</a>
                                         <a class="btn btn-warning" href="<?php echo url('/schedules/bids'); ?>"><input type="submit" name="submit" value="Remove Bid" /></a>
                                         <?php
                                     } elseif ($route->bidid != 0) {
                                         ?>
-                                        <input type="button" disabled="disabled" value="booked" title="Flight Is Already Booked!">
+                                        <a class="btn btn-danger" disabled="disabled">Booked</a>
                                         <?php
                                     } else {
                                         ?>
