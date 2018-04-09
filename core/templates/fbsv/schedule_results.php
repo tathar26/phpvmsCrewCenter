@@ -68,13 +68,13 @@ $last_name = OperationsData::getAirportInfo($last_location->arricao);
                                     <?php echo ($route->notes == '') ? '' : '<strong>Notes: </strong>' . html_entity_decode($route->notes) . '<br />' ?>                                    
                                 </td>
                                 <td nowrap>
-                                    <a class="btn btn-warning" href="<?php echo url('/schedules/brief/'.$route->id);?>">BRIEFING</a>
+                                    <a class="btn btn-info" href="<?php echo url('/schedules/details/'.$route->id);?>">DETAILS</a>
                                     <?php
                                     $bids = SchedulesData::getBids(Auth::$pilot->pilotid);
                                     if (count($bids) > 0) {
                                         ?>
-                                    <a class="btn btn-block" type="button" disabled="disabled">Reserved</a>
-                                        <a class="btn btn-warning" href="<?php echo url('/schedules/bids'); ?>"><input type="submit" name="submit" value="Remove Bid" /></a>
+                                        <a class="btn btn-block" disabled="disabled">Reserved</a>
+                                        <a class="btn btn-warning" href="<?php echo url('/schedules/bids'); ?>">Remove Bid</a>
                                         <?php
                                     } elseif ($route->bidid != 0) {
                                         ?>
