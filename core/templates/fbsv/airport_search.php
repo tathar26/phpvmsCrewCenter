@@ -117,7 +117,7 @@ $(document).ready(function(){
 												</p>
 										</div>
 									</div>
-								</div
+								</div>
 							</form>
 						<!--</div> -->
 					</div>
