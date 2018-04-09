@@ -22,7 +22,8 @@ $(document).ready(function(){
 		}).trigger('change');
 });
 	</script>
-<div class="row clearfix">
+<div class="body">
+	<div class="row clearfix">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
@@ -30,7 +31,7 @@ $(document).ready(function(){
                                 Schedule Search <small><?php echo SITE_NAME?> Flight Ops</small>
                             </h2>
                         </div>
-                        <div class="body">
+                        <!--<div class="body">-->
 							<div class="col-lg-12">
 								<h3>
 									Current Location: <b><font color="#FF3300"><?php echo $last_location->arricao?> - <?php echo $last_name->name?></font></b>
@@ -118,17 +119,17 @@ $(document).ready(function(){
 									</div>
 								</div
 							</form>
-						</div>
+						<!--</div> -->
 					</div>
 				</div>
 </div>
-<div class="row clearfix">
+	<div class="row clearfix">
                 <div class="col-md-12">
                     <div class="card">
 						<div class="header">
 							<h3>Pilot Transfer</h3>
 						</div>
-						<div class="body">
+						<!--<div class="body">-->
 							<div class="col-lg-12">
 							<ul>
 								<li>Your Bank limit is : <font color="#66FF00"><?php echo FinanceData::FormatMoney(Auth::$userinfo->totalpay) ;?></font></li>
@@ -189,7 +190,7 @@ $(document).ready(function(){
 							<input type="hidden" name="cost">
 							<input type="hidden" name="airport">
 							</form>
-						</div>
+						<!--</div>-->
 					</div>
 				</div>
 </div>
