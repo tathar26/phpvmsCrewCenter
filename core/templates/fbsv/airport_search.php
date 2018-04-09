@@ -31,14 +31,14 @@ $(document).ready(function(){
                             </h2>
                         </div>
                         <div class="body">
-							<div class="header">
+							<div class="col-lg-12">
 								<h3>
 									Current Location: <b><font color="#FF3300"><?php echo $last_location->arricao?> - <?php echo $last_name->name?></font></b>
 								</h3>
 							</div>
 							<form action="<?php echo url('/FBSV11');?>" method="post" enctype="multipart/form-data">
 								<div class="row">
-									<div class="col-lg-6" id="tab_1">
+									<div class="col-lg-6">
                           				<p>Select your Arrival airport:</p>
                             			<div class="form-group">
                               				<select id="arricao" name="arricao" class="selectpicker form-control" data-live-search="true" >
@@ -62,7 +62,7 @@ $(document).ready(function(){
                             				</select>
                         				</div>
                     				</div>
-									<div class="col-lg-6" id="tab_2">
+									<div class="col-lg-6">
                           				<p>Select your airline:</p>
                             			<div class="form-group">
                           					<select id="airline" name="airline" class="selectpicker form-control" data-live-search="true width="100%" >
@@ -80,7 +80,7 @@ $(document).ready(function(){
 									</div>
 								</div>
 								<div class="row">		
-									<div class="col-lg-6" id="tab_3">
+									<div class="col-lg-6">
                           				<p>Select your Aircraft :</p>
                             			<div class="form-group">
                           					<select id="aircraft" name="aircraft" class="selectpicker form-control" data-live-search="true" >
@@ -118,6 +118,13 @@ $(document).ready(function(){
 									</div>
 								</div
 							</form>
+						</div>
+					</div>
+				</div>
+</div>
+<div class="row clearfix">
+                <div class="col-md-12">
+                    <div class="card">
 						<div class="header">
 							<h3>Pilot Transfer</h3>
 						</div>
