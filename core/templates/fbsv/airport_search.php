@@ -111,13 +111,11 @@ $(document).ready(function(){
 								<div class="row">
 									<div class="col-lg-12"
 										<div class="form-group">
-												<input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary form-control" />
-												<p>
-													<input type="hidden" name="action" value="findflight"/>
-												</p>
+											<input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary form-control" />
 										</div>
 									</div>
 								</div>
+							<input type="hidden" name="action" value="findflight"/>	
 							</form>
 						<!--</div> -->
 					</div>
