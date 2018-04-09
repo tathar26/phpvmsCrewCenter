@@ -129,18 +129,19 @@ $(document).ready(function(){
 							<h3>Pilot Transfer</h3>
 						</div>
 						<div class="body">
+							<div class="col-lg-12">
 							<ul>
 								<li>Your Bank limit is : <font color="#66FF00"><?php echo FinanceData::FormatMoney(Auth::$userinfo->totalpay) ;?></font></li>
 							</ul>
 							<br />
+							</div>
 							<form action="<?php echo url('/FBSV11/jumpseat');?>" method="get">
-								<table>
-									<tr>	
-										<td>select airport to transfer : </td>
-										<td >
-												
-												<select name="depicao" onchange="listSel(this,'cost')">
-													<option value="">--Select--</option>
+								<div class="row">
+									<div class="col-lg-12">
+										<p>Select airport to transfer</p>
+										<div class="form-group">	
+											<select name="depicao" onchange="listSel(this,'cost')">
+											<option value="">--Select--</option>
 													<?php
 														foreach ($airports as $airport){
 															$distance = round(SchedulesData::distanceBetweenPoints($last_name->lat, $last_name->lng, $airport->lat, $airport->lng), 0);
@@ -161,25 +162,30 @@ $(document).ready(function(){
 												<?php                   
 														}
 													?> 
-												</select>
-											</td>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="form-group">						
 												<?php
 													if(Auth::$userinfo->totalpay == "0")
 														{
 													?>
-															<td align="center"><input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary" disabled="disabled"></td> 
+															<input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary" disabled="disabled"> 
 													<?php
 														}
 													else
 														{
 													?>
-															<td align="center"><input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary" ></td>
+															<input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary" >
 													<?php
 														}
 													?>
-													
-									</tr>
-								</table>
+										</div>			
+									</div>
+								</div>
 							<input type="hidden" name="cost">
 							<input type="hidden" name="airport">
 							</form>
