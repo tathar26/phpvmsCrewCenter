@@ -140,7 +140,7 @@ $(document).ready(function(){
 									<div class="col-lg-12">
 										<p>Select airport to transfer</p>
 										<div class="form-group">	
-											<select name="depicao" onchange="listSel(this,'cost')">
+											<select name="depicao" onchange="listSel(this,'cost')" class="selectpicker form-control" data-live-search="true">
 											<option value="">--Select--</option>
 													<?php
 														foreach ($airports as $airport){
@@ -173,13 +173,13 @@ $(document).ready(function(){
 													if(Auth::$userinfo->totalpay == "0")
 														{
 													?>
-															<input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary" disabled="disabled"> 
+															<input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary form-control" disabled="disabled"> 
 													<?php
 														}
 													else
 														{
 													?>
-															<input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary" >
+															<input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary form-control" >
 													<?php
 														}
 													?>
