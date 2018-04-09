@@ -11,7 +11,7 @@ $last_name = OperationsData::getAirportInfo($last_location->arricao);
                 <div class="header">
                     <h2>Flight Dispatch</h2>
                 </div>
-                <ul class="nav nav-tabs nav-tabs-hightlight nav-lg nav-justified nav-tabs-bottom">
+                <ul class="nav nav-tabs nav-lg nav-justified nav-tabs-bottom">
                     <li class="active">
                         <a href="#upcomingOMDB" data-toggle="tab" aria-expanded="true" class="legitRipple"><?php echo $last_location->arricao.' ( '.$last_name->name.')' ;?></a>
                     </li>
