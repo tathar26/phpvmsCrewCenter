@@ -89,137 +89,25 @@ $last_name = OperationsData::getAirportInfo($last_location->arricao);
                                 </td>
                             </tr>
                         </tbody>
-                    
-                        
-                
-                <tr>
-                    <td colspan="5">
-                                <table id="details_dialog_<?php echo $route->flightnum;?>" style="display:none">
-                                        <tr>
-                                                <th colspan="4">&nbsp;</th>
-                                        </tr>
-                                        <tr>
-                                                <th style="text-align: center;" bgcolor="#00405e" colspan="4"><font color="white">Flight Brefing</font></th>
-                                        </tr>
-                                        <tr>
-                                                <td align="left">Deaprture:</td>
-                                                <td colspan="0" align="left" >
-                                                        <b>
-                                                        <?php
-                                                        $name = OperationsData::getAirportInfo($route->depicao);
-                                                        echo $name->name;
-                                                        ?>
-                                                        </b>
-                                                </td>
-                                                <td align="left">Arrival:</td>
-                                                <td colspan="0" align="left" >
-                                                        <b>
-                                                        <?php 
-                                                        $name = OperationsData::getAirportInfo($route->arricao);
-                                                        echo $name->name;
-                                                        ?>
-                                                        </b>
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                                <td align="left">Aircraft</td>
-                                                <td colspan="0" align="left" >
-                                                        <b>
-                                                        <?php 
-                                                        $plane = OperationsData::getAircraftByName($route->aircraft);
-                                                        echo $plane->fullname ; 
-                                                        ?>
-                                                        </b>
-                                                </td>
-                                                <td align="left">Distance:</td>
-                                                <td colspan="0" align="left" ><b><?phpecho $route->distance . Config::Get('UNITS') ;?></b></td>
-                                        </tr>
-                                        <tr>
-                                                <td align="left">Dep Time:</td>
-                                                <td colspan="0" align="left" ><b><font color="red"><?php echo $route->deptime?> GMT</font></b></td>
-                                                <td align="left">Arr Time:</td>
-                                                <td colspan="0" align="left" ><b><font color="red"><?php echo $route->arrtime?> GMT</font></b></td>
-                                        </tr>
-                                        <tr>
-                                                <td align="left">Altitude:</td>
-                                                <td colspan="0" align="left" ><b><?php echo $route->flightlevel; ?> ft</b></td>
-                                                <td align="left">Duration:</td>
-                                                <td colspan="0" align="left" >
-                                                        <font color="red">
-                                                        <b>
-                                                        <?php 
+                    </table>
+                </div>
+                <div class="row">
+                    <section class="col-lg-3 connected">
+                        <div class="box box-primary">
+                            <div class="box-body">
+                                <p>Click the button below to return to the search page.</p>
+                                <a href="<?php echo url('/FBSV11'); ?>" class="btn btn-primary btn-flat">Return to Search</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                
+                 
 
-                                                        $dist = $route->distance;
-                                                        $speed = 440;
-                                                        $app = $speed / 60 ;
-                                                        $flttime = round($dist / $app,0)+ 20;
-                                                        $hours = intval($flttime / 60);
-                                                        $minutes = (($flttime / 60) - $hours) * 60;
-                                                        if($hours > "9" AND $minutes > "9")
-                                                        {
-                                                        echo $hours.':'.$minutes ;
-                                                        }
-                                                        else
-                                                        {
-                                                        echo '0'.$hours.':'.$minutes ;
-                                                        }
-                                                        ?> Hrs
-                                                        </b>
-                                                        </font>
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                                <td align="left">Days</td>
-                                                <td colspan="0" align="left" ><b><?php echo Util::GetDaysLong($route->daysofweek) ;?></b></td>
-                                                <td align="left">Price:</td>
-                                                <td colspan="0" align="left" ><b><?php echo $route->price ;?>.00</b></td>
-                                        </tr>
-                                        <tr>
-                                                <td align="left">Flight Type:</td>
-                                                <td colspan="0" align="left" >
-                                                        <b>
-                                                        <?php
-                                                        if($route->flighttype == "P")
-                                                        {
-                                                        echo'Passenger' ;
-                                                        }
-                                                        if($route->flighttype == "C")
-                                                        {
-                                                        echo'Cargo' ;
-                                                        }
-                                                        if($route->flighttype == "H")
-                                                        {
-                                                        echo'Charter' ;
-                                                        }
-                                                        ?>
-                                                        </b>
-                                                </td>
-                                                <td align="left">Flown</td>
-                                                <td colspan="0" align="left" ><b><?php echo $route->timesflown ;?></b></td>
-                                        </tr>
-                                        <tr><td>Route:</td><td colspan="3" align="left" ><b><?php echo $route->route ;?></b></td></tr>
-                                        <tr>
-                                                <th style="text-align: center;" bgcolor="#00405e" colspan="4"><font color="white">Flight Map</font></th>
-                                        </tr>
-                                        <tr>
-                                                <td width="100%" colspan="4">
-                                                        <?php
-                                                        $string = "";
-                                                                                $string = $string.$route->depicao.'+-+'.$route->arricao.',+';
-                                                                                ?>
-
-                                                                                <img width="100%" src="http://www.gcmap.com/map?P=<?php echo $string ?>&amp;MS=bm&amp;MR=240&amp;MX=680x200&amp;PM=pemr:diamond7:red%2b%22%25I%22:red&amp;PC=%230000ff" />
-                                                </td>
-                                        </tr>
-                                        //<-----------add extra codes for fuel calculations here--------------->
-                                </table>
-                    </td>
-                </tr>
-
-                <?php
-                }
-                }
-                ?>
-                        </table>
+           
 
 			
