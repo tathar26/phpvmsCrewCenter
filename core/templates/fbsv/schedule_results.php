@@ -82,7 +82,7 @@ $last_name = OperationsData::getAirportInfo($last_location->arricao);
                                         <?php
                                     } else {
                                         ?>
-                                        <a id="<?php echo $route->id; ?>" class="addbid btn btn-success" href="<?php echo url('/schedules/addbid);?>">Book Flight</a>
+                                        <a id="<?php echo $route->id; ?>" class="addbid btn btn-success" href="<?php echo url('/schedules/addbid?id=' . $route->id); ?>">Book Flight</a>
                                         <?php
                                     }
                                     ?>
