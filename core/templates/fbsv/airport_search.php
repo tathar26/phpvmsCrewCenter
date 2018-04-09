@@ -128,6 +128,7 @@ $(document).ready(function(){
 						<div class="header">
 							<h3>Pilot Transfer</h3>
 						</div>
+						<div class="body">
 							<ul>
 								<li>Your Bank limit is : <font color="#66FF00"><?php echo FinanceData::FormatMoney(Auth::$userinfo->totalpay) ;?></font></li>
 							</ul>
