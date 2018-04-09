@@ -29,8 +29,10 @@ $last_name = OperationsData::getAirportInfo($last_location->arricao);
                 <div class="box-body table-responsive no-padding">
                     <table class="tablesorter table table-hover">
                         <thead>
-                        <th>Flight Information</th>
-                        <th>Options</th>
+                        <th>Flight</th>
+                        <th>Dep. Time</th>
+                        <th>Destination</th>
+                        <th>Aircraft</th>
                         </thead>
                         <tbody>
                                 <?php
@@ -49,14 +51,12 @@ $last_name = OperationsData::getAirportInfo($last_location->arricao);
                             <tr>
                                 <td>
                                     <?php echo $route->code . $route->flightnum?>
-                                    <?php echo '('.$route->depicao.' - '.$route->arricao.')'?>
-                                    </a>
                                 </td>
                                 <td>
                                     <?php echo $route->deptime; ?>
                                 </td>
                                 <td>
-                                    <?php echo $route->depicao; ?>
+                                    <?php echo $route->arricao; ?>
                                 </td>
                                 <td>
                                     <?php echo $route->aircraft; ?>
