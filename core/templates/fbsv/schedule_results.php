@@ -86,6 +86,7 @@ $last_name = OperationsData::getAirportInfo($last_location->arricao);
                                         <?php
                                     }
                                 }
+                }
                                     ?>
                                 </td>
                             </tr>
