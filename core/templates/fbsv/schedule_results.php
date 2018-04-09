@@ -16,6 +16,7 @@ $last_name = OperationsData::getAirportInfo($last_location->arricao);
                         <a href="#upcomingOMDB" data-toggle="tab" aria-expanded="true" class="legitRipple"><?php echo $last_location->arricao.' ( '.$last_name->name.')' ;?></a>
                     </li>
                 </ul>
+                <br />
                  <?php
                     if(!$allroutes){
                     
