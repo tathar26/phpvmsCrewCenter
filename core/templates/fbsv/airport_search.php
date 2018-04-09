@@ -115,7 +115,8 @@ $(document).ready(function(){
 										</div>
 									</div>
 								</div>
-							<input type="hidden" name="action" value="findflight"/>	
+							<input type="hidden" name="action" value="findflight"/>
+							<br>	
 							</form>
 						<!--</div> -->
 					</div>
