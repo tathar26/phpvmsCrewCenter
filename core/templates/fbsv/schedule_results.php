@@ -11,9 +11,11 @@ $last_name = OperationsData::getAirportInfo($last_location->arricao);
                 <div class="header">
                     <h2>Flight Dispatch</h2>
                 </div>
-                <h3>
-                    Available flights from: <b><font color="#FF3300"><?php echo $last_location->arricao.' ( '.$last_name->name.')' ;?></font></b>
-                </h3>
+                <ul class="nav nav-tabs nav-tabs-hightlight nav-lg nav-justified nav-tabs-bottom">
+                    <li class="active">
+                        <a href="#upcomingOMDB" data-toggle="tab" aria-expanded="true" class="legitRipple"><?php echo $last_location->arricao.' ( '.$last_name->name.')' ;?></a>
+                    </li>
+                </ul>
                  <?php
                     if(!$allroutes){
                     
