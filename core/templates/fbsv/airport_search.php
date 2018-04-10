@@ -39,40 +39,42 @@ if (!$last_location) {
                     <div class="row">
                         <div class="col-lg-6" >
                             <div class="margin-card">
-                            <p>Select your Arrival airport:</p>
-                            <div class="form-group">
-                                <select id="arricao" name="arricao" class="selectpicker form-control" data-live-search="true" >
+                                <p>Select your Arrival airport:</p>
+                                <div class="form-group">
+                                    <select id="arricao" name="arricao" class="selectpicker form-control" data-live-search="true" >
 
-                                    <option value="">Select All</option>
-<?php
-$airs = FBSVData::arrivalairport($last_location->arricao);
-if (!$airs) {
-    echo '<option>No Airports Available!</option>';
-} else {
-    foreach ($airs as $air) {
-        $nam = OperationsData::getAirportInfo($air->arricao);
-        echo '<option value="' . $air->arricao . '">' . $air->arricao . ' - ' . $nam->name . '</option>';
+                                        <option value="">Select All</option>
+    <?php
+    $airs = FBSVData::arrivalairport($last_location->arricao);
+    if (!$airs) {
+        echo '<option>No Airports Available!</option>';
+    } else {
+        foreach ($airs as $air) {
+            $nam = OperationsData::getAirportInfo($air->arricao);
+            echo '<option value="' . $air->arricao . '">' . $air->arricao . ' - ' . $nam->name . '</option>';
+        }
     }
-}
-?>
-                                </select>
-                            </div>
+    ?>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <p>Select your airline:</p>
-                            <div class="form-group">
-                                <select id="airline" name="airline" class="selectpicker form-control" data-live-search="true width="100%" >
-                                    <option value="">Select All</option>
-<?php
-if (!$airlines)
-    $airlines = array();
-foreach ($airlines as $airline) {
-    echo '<option value="' . $airline->code . '">' . $airline->name
-    . ' (' . $airline->code . ')</option>';
-}
-?>
-                                </select>
+                            <div class="margin-card">
+                                <p>Select your airline:</p>
+                                <div class="form-group">
+                                    <select id="airline" name="airline" class="selectpicker form-control" data-live-search="true width="100%" >
+                                        <option value="">Select All</option>
+    <?php
+    if (!$airlines)
+        $airlines = array();
+    foreach ($airlines as $airline) {
+        echo '<option value="' . $airline->code . '">' . $airline->name
+        . ' (' . $airline->code . ')</option>';
+    }
+    ?>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -102,9 +104,11 @@ foreach ($airlines as $airline) {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-12 margin-card"
-                             <div class="form-group">
-                                <input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary form-control" />
+                        <div class="col-lg-12">
+                            <div class="margin-card">
+                                <div class="form-group">
+                                   <input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary form-control" />
+                               </div>
                             </div>
                         </div>
                     </div>
@@ -123,54 +127,61 @@ foreach ($airlines as $airline) {
                 </div>
                 <!--<div class="body">-->
                 <div class="col-lg-12">
-                    <ul>
-                        <li>Your Bank limit is : <font color="#66FF00"><?php echo FinanceData::FormatMoney(Auth::$userinfo->totalpay); ?></font></li>
-                    </ul>
-                    <br />
+                    <div class="margin-card">
+                        <br />
+                        <ul>
+                            <li>Your Bank limit is : <font color="#66FF00"><?php echo FinanceData::FormatMoney(Auth::$userinfo->totalpay); ?></font></li>
+                        </ul>
+                        <br />
+                    </div
                 </div>
                 <form action="<?php echo url('/FBSV11/jumpseat'); ?>" method="get">
                     <div class="row">
                         <div class="col-lg-12">
-                            <p>Select airport to transfer</p>
-                            <div class="form-group">	
-                                <select name="depicao" onchange="listSel(this, 'cost')" class="selectpicker form-control" data-live-search="true">
-                                    <option value="">--Select--</option>
-<?php
-foreach ($airports as $airport) {
-    $distance = round(SchedulesData::distanceBetweenPoints($last_name->lat, $last_name->lng, $airport->lat, $airport->lng), 0);
-    $permile = Config::Get('JUMPSEAT_COST');
-    $cost = ($permile * $distance);
-    $check = PIREPData::getLastReports(Auth::$userinfo->pilotid, 1, 1);
-    if ($cost >= Auth::$userinfo->totalpay) {
-        continue;
-    } elseif ($check->accepted == PIREP_ACCEPTED || !$check) {
-        echo "<option name='{$cost}' value='{$airport->icao}'>{$airport->icao} - {$airport->name}    /Cost - <font color='#66FF00'>$ {$cost}</font></option>";
-    }
-    ?>
+                            <div class="margin-card">
+                                <p>Select airport to transfer</p>
+                                <div class="form-group">	
+                                    <select name="depicao" onchange="listSel(this, 'cost')" class="selectpicker form-control" data-live-search="true">
+                                        <option value="">--Select--</option>
+    <?php
+    foreach ($airports as $airport) {
+        $distance = round(SchedulesData::distanceBetweenPoints($last_name->lat, $last_name->lng, $airport->lat, $airport->lng), 0);
+        $permile = Config::Get('JUMPSEAT_COST');
+        $cost = ($permile * $distance);
+        $check = PIREPData::getLastReports(Auth::$userinfo->pilotid, 1, 1);
+        if ($cost >= Auth::$userinfo->totalpay) {
+            continue;
+        } elseif ($check->accepted == PIREP_ACCEPTED || !$check) {
+            echo "<option name='{$cost}' value='{$airport->icao}'>{$airport->icao} - {$airport->name}    /Cost - <font color='#66FF00'>$ {$cost}</font></option>";
+        }
+        ?>
 
-                                        <hr> 
-                                        <?php
-                                    }
-                                    ?> 
-                                </select>
+                                            <hr> 
+                                            <?php
+                                        }
+                                        ?> 
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="form-group">						
-                                    <?php
-                                    if (Auth::$userinfo->totalpay == "0") {
-                                        ?>
-                                    <input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary form-control" disabled="disabled"> 
+                            <div class="margin-card">
+                                <div class="form-group">						
                                         <?php
-                                    } else {
-                                        ?>
-                                    <input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary form-control" >
-    <?php
-}
-?>
-                            </div>			
+                                        if (Auth::$userinfo->totalpay == "0") {
+                                            ?>
+                                        <input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary form-control" disabled="disabled"> 
+                                            <?php
+                                        } else {
+                                            ?>
+                                        <input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary form-control" >
+        <?php
+    }
+    ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <input type="hidden" name="cost">
