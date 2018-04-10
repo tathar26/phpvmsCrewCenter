@@ -37,7 +37,8 @@ if (!$last_location) {
                 </div>
                 <form action="<?php echo url('/FBSV11'); ?>" method="post" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-lg-6" style="margin-left:10px;">
+                        <div class="col-lg-6" >
+                            <div style="margin-left:10px;">
                             <p>Select your Arrival airport:</p>
                             <div class="form-group">
                                 <select id="arricao" name="arricao" class="selectpicker form-control" data-live-search="true" >
@@ -55,6 +56,7 @@ if (!$airs) {
 }
 ?>
                                 </select>
+                            </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
