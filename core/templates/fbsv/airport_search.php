@@ -125,15 +125,17 @@ if (!$last_location) {
                 <div class="header">
                     <h3>Pilot Transfer</h3>
                 </div>
+                <div class="row">
                 <!--<div class="body">-->
-                <div class="col-lg-12">
-                    <div class="margin-card">
-                        <br />
-                        <ul>
-                            <li>Your Bank limit is : <font color="#66FF00"><?php echo FinanceData::FormatMoney(Auth::$userinfo->totalpay); ?></font></li>
-                        </ul>
-                        <br />
-                    </div
+                    <div class="col-lg-12">
+                        <div class="margin-card">
+                            <br />
+                            <ul>
+                                <li>Your Bank limit is : <font color="#66FF00"><?php echo FinanceData::FormatMoney(Auth::$userinfo->totalpay); ?></font></li>
+                            </ul>
+                            <br />
+                        </div>
+                    </div>
                 </div>
                 <form action="<?php echo url('/FBSV11/jumpseat'); ?>" method="get">
                     <div class="row">
