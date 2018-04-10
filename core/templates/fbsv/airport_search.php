@@ -44,17 +44,17 @@ if (!$last_location) {
                                     <select id="arricao" name="arricao" class="selectpicker form-control" data-live-search="true" >
 
                                         <option value="">Select All</option>
-    <?php
-    $airs = FBSVData::arrivalairport($last_location->arricao);
-    if (!$airs) {
-        echo '<option>No Airports Available!</option>';
-    } else {
-        foreach ($airs as $air) {
-            $nam = OperationsData::getAirportInfo($air->arricao);
-            echo '<option value="' . $air->arricao . '">' . $air->arricao . ' - ' . $nam->name . '</option>';
-        }
-    }
-    ?>
+                                        <?php
+                                        $airs = FBSVData::arrivalairport($last_location->arricao);
+                                        if (!$airs) {
+                                            echo '<option>No Airports Available!</option>';
+                                        } else {
+                                            foreach ($airs as $air) {
+                                                $nam = OperationsData::getAirportInfo($air->arricao);
+                                                echo '<option value="' . $air->arricao . '">' . $air->arricao . ' - ' . $nam->name . '</option>';
+                                            }
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -65,14 +65,14 @@ if (!$last_location) {
                                 <div class="form-group">
                                     <select id="airline" name="airline" class="selectpicker form-control" data-live-search="true width="100%" >
                                         <option value="">Select All</option>
-    <?php
-    if (!$airlines)
-        $airlines = array();
-    foreach ($airlines as $airline) {
-        echo '<option value="' . $airline->code . '">' . $airline->name
-        . ' (' . $airline->code . ')</option>';
-    }
-    ?>
+                                        <?php
+                                        if (!$airlines)
+                                            $airlines = array();
+                                        foreach ($airlines as $airline) {
+                                            echo '<option value="' . $airline->code . '">' . $airline->name
+                                            . ' (' . $airline->code . ')</option>';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -85,14 +85,14 @@ if (!$last_location) {
                                 <div class="form-group">
                                     <select id="aircraft" name="aircraft" class="selectpicker form-control" data-live-search="true" >
                                         <option value="">Select All</option>
-    <?php
-    $airc = FBSVData::routeaircraft($last_location->arricao);
-    if (!$airc) {
-        echo '<option>No Aircraft Available!</option>';
-    } else {
-        foreach ($airc as $air) {
-            $ai = FBSVData::getaircraftbyID($air->aircraft);
-            ?>
+                                        <?php
+                                        $airc = FBSVData::routeaircraft($last_location->arricao);
+                                        if (!$airc) {
+                                            echo '<option>No Aircraft Available!</option>';
+                                        } else {
+                                            foreach ($airc as $air) {
+                                                $ai = FBSVData::getaircraftbyID($air->aircraft);
+                                                ?>
                                                 <option value="<?php echo $ai->icao; ?>"><?php echo $ai->name; ?></option>
                                                 <?php
                                             }
@@ -107,8 +107,8 @@ if (!$last_location) {
                         <div class="col-lg-12">
                             <div class="margin-card">
                                 <div class="form-group">
-                                   <input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary form-control" />
-                               </div>
+                                    <input type="submit" name="submit" value="Search Flight" class="btn btn-flat btn-primary form-control" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,18 +143,18 @@ if (!$last_location) {
                                 <div class="form-group">	
                                     <select name="depicao" onchange="listSel(this, 'cost')" class="selectpicker form-control" data-live-search="true">
                                         <option value="">--Select--</option>
-    <?php
-    foreach ($airports as $airport) {
-        $distance = round(SchedulesData::distanceBetweenPoints($last_name->lat, $last_name->lng, $airport->lat, $airport->lng), 0);
-        $permile = Config::Get('JUMPSEAT_COST');
-        $cost = ($permile * $distance);
-        $check = PIREPData::getLastReports(Auth::$userinfo->pilotid, 1, 1);
-        if ($cost >= Auth::$userinfo->totalpay) {
-            continue;
-        } elseif ($check->accepted == PIREP_ACCEPTED || !$check) {
-            echo "<option name='{$cost}' value='{$airport->icao}'>{$airport->icao} - {$airport->name}    /Cost - <font color='#66FF00'>$ {$cost}</font></option>";
-        }
-        ?>
+                                        <?php
+                                        foreach ($airports as $airport) {
+                                            $distance = round(SchedulesData::distanceBetweenPoints($last_name->lat, $last_name->lng, $airport->lat, $airport->lng), 0);
+                                            $permile = Config::Get('JUMPSEAT_COST');
+                                            $cost = ($permile * $distance);
+                                            $check = PIREPData::getLastReports(Auth::$userinfo->pilotid, 1, 1);
+                                            if ($cost >= Auth::$userinfo->totalpay) {
+                                                continue;
+                                            } elseif ($check->accepted == PIREP_ACCEPTED || !$check) {
+                                                echo "<option name='{$cost}' value='{$airport->icao}'>{$airport->icao} - {$airport->name}    /Cost - <font color='#66FF00'>$ {$cost}</font></option>";
+                                            }
+                                            ?>
 
                                             <hr> 
                                             <?php
@@ -169,17 +169,17 @@ if (!$last_location) {
                         <div class="col-lg-12">
                             <div class="margin-card">
                                 <div class="form-group">						
-                                        <?php
-                                        if (Auth::$userinfo->totalpay == "0") {
-                                            ?>
+                                    <?php
+                                    if (Auth::$userinfo->totalpay == "0") {
+                                        ?>
                                         <input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary form-control" disabled="disabled"> 
-                                            <?php
-                                        } else {
-                                            ?>
+                                        <?php
+                                    } else {
+                                        ?>
                                         <input type="submit" name="submit" value="Transfer" class="btn btn-flat btn-primary form-control" >
-        <?php
-    }
-    ?>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -188,6 +188,7 @@ if (!$last_location) {
                     <input type="hidden" name="airport">
                 </form>
                 <!--</div>-->
+                </div>
             </div>
         </div>
     </div>
