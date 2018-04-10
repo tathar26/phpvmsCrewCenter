@@ -190,7 +190,6 @@ if (!$last_location) {
                     <input type="hidden" name="airport">
                 </form>
                 <!--</div>-->
-                </div>
             </div>
         </div>
     </div>
