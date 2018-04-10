@@ -29,12 +29,12 @@ if (!$last_location) {
                         Schedule Search <small><?php echo SITE_NAME ?> Flight Ops</small>
                     </h2>
                 </div>
-                <!--<div class="body">-->
-                <div class="col-lg-12">
-                    <h3>
-                        Current Location: <b><font color="#FF3300"><?php echo $last_location->arricao ?> - <?php echo $last_name->name ?></font></b>
-                    </h3>
-                </div>
+                <ul class="nav nav-tabs nav-lg nav-justified nav-tabs-bottom">
+                    <li class="active">
+                        <a href="#upcomingOMDB" data-toggle="tab" aria-expanded="true" class="legitRipple"><?php echo $last_location->arricao.' ( '.$last_name->name.')' ;?></a>
+                    </li>
+                </ul>
+                <br />
                 <form action="<?php echo url('/FBSV11'); ?>" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-6" >
