@@ -68,7 +68,7 @@ var acars_map_defaults = {
 };
 </script>
 
-<div id="acarsmap" style="width: 100%; height: 300px;"></div>
+<div id="acarsmap" style="width: 100%; height: 400px;"></div>
 
 <?php
 /* See below for details and columns you can use in this table */
