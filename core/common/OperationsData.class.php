@@ -22,7 +22,7 @@ class OperationsData extends CodonData {
     public static function findAirport($params, $count = '', $start = '', $order_by = '') {
         
         $sql = 'SELECT * FROM ' . TABLE_PREFIX . 'airports ';
-        $sql .= 'AND (icao IN (SELECT depicao from phpvms_schedules) OR icao IN (SELECT arricao from phpvms_schedules))';
+       
         /* Build the select "WHERE" based on the columns passed, this is a generic function */
         $sql .= DB::build_where($params);
         
@@ -213,7 +213,7 @@ class OperationsData extends CodonData {
 
         if ($all_airports === false) {
             $sql = 'SELECT * FROM ' . TABLE_PREFIX . 'airports 
-					ORDER BY `icao` ASC';
+            WHERE icao IN (SELECT depicao from phpvms_schedules) OR icao IN (SELECT arricao from phpvms_schedules) ORDER BY `icao` ASC';
 
             $all_airports = DB::get_results($sql);
             if(!$all_airports) {
